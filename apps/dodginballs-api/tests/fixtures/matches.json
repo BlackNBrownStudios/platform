@@ -1,0 +1,15 @@
+[
+  {
+    "_id": "707f191e810c19729de861aa",
+    "court": "Court 1",
+    "matchState": 2,
+    "winningTeamId": "607f191e810c19729de860fa",
+    "losingTeamId": "607f191e810c19729de860fb",
+    "teams": ["607f191e810c19729de860fa", "607f191e810c19729de860fb"],
+    "startedAt": "2025-04-01T10:00:00.000Z",
+    "endedAt": "2025-04-01T10:45:00.000Z",
+    "gameMode": "standard",
+    "scoreData": { "607f191e810c19729de860fa": 100, "607f191e810c19729de860fb": 60 },
+    "matchStatistics": { "totalThrows": 50, "totalCatches": 30, "totalHits": 20, "totalDodges": 15, "matchDuration": 2700, "mvpPlayerId": "507f191e810c19729de860ea" }
+  }
+]

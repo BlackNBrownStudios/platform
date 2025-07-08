@@ -1,0 +1,23 @@
+[
+  {
+    "_id": "507f191e810c19729de860ea",
+    "name": "Alice",
+    "email": "alice@example.com",
+    "password": "$2a$08$testhash1",
+    "stats": { "gamesPlayed": 5, "gamesWon": 2, "totalScore": 100, "highScore": 60 }
+  },
+  {
+    "_id": "507f191e810c19729de860eb",
+    "name": "Bob",
+    "email": "bob@example.com",
+    "password": "$2a$08$testhash2",
+    "stats": { "gamesPlayed": 5, "gamesWon": 4, "totalScore": 120, "highScore": 80 }
+  },
+  {
+    "_id": "507f191e810c19729de860ec",
+    "name": "Charlie",
+    "email": "charlie@example.com",
+    "password": "$2a$08$testhash3",
+    "stats": { "gamesPlayed": 3, "gamesWon": 0, "totalScore": 30, "highScore": 20 }
+  }
+]

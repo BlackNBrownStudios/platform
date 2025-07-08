@@ -1,0 +1,16 @@
+(node:169960) [MONGODB DRIVER] Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:169960) [MONGODB DRIVER] Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+PASS tests/unit/statistics.test.js
+  Statistics field tests
+    User statistics
+      ✓ should correctly create a user with statistics field (170 ms)
+    Team statistics
+      ✓ should correctly create a team with statistics field (7 ms)
+      ✓ should correctly update team statistics using updateStats method (8 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        0.95 s, estimated 1 s
+Ran all test suites matching /tests\/unit\/statistics.test.js/i.

@@ -1,0 +1,272 @@
+2025-04-15 14:07:48 [32minfo[39m: Google OAuth is not configured
+2025-04-15 14:07:48 [32minfo[39m: Facebook OAuth is not configured
+2025-04-15 14:07:48 [32minfo[39m: Apple OAuth is not configured
+(node:183796) [MONGODB DRIVER] Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:183796) [MONGODB DRIVER] Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+2025-04-15 14:07:49 [32minfo[39m: POST /api/v1/auth/login 200 - 26.664 ms
+2025-04-15 14:07:49 [32minfo[39m: GET /api/v1/leaderboard/users 200 - 7.623 ms
+2025-04-15 14:07:49 [32minfo[39m: POST /api/v1/auth/login 200 - 16.085 ms
+2025-04-15 14:07:49 [32minfo[39m: GET /api/v1/leaderboard/users?limit=1&page=1 200 - 3.369 ms
+2025-04-15 14:07:49 [32minfo[39m: POST /api/v1/auth/login 200 - 17.251 ms
+2025-04-15 14:07:49 [31merror[39m: Error: Please authenticate
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/src/middlewares/auth.js:16:19
+    at allFailed (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/authenticate.js:110:18)
+    at attempt (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/authenticate.js:183:28)
+    at JwtStrategy.strategy.fail (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/authenticate.js:314:9)
+    at JwtStrategy.Object.<anonymous>.JwtStrategy.authenticate (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport-jwt/lib/strategy.js:96:21)
+    at attempt (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/authenticate.js:378:16)
+    at authenticate (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/authenticate.js:379:7)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/src/middlewares/auth.js:38:107
+    at new Promise (<anonymous>)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/src/middlewares/auth.js:37:10
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:175:3)
+    at router (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:175:3)
+    at router (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:280:10)
+    at initialize (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/initialize.js:98:5)
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:280:10)
+    at cors (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/cors/lib/index.js:188:7)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/cors/lib/index.js:224:17
+    at callback (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/src/app.js:61:14)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:280:10)
+    at SendStream.error (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/serve-static/index.js:121:7)
+    at SendStream.emit (node:events:519:28)
+    at SendStream.error (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/send/index.js:270:17)
+    at SendStream.onStatError (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/send/index.js:417:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/send/index.js:730:16)
+    at onstat (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/send/index.js:719:14)
+    at FSReqCallback.oncomplete (node:fs:203:21)
+2025-04-15 14:07:49 [31merror[39m: GET /api/v1/leaderboard/users 401 - 2.104 ms - message: Please authenticate
+2025-04-15 14:07:49 [32minfo[39m: POST /api/v1/auth/login 200 - 16.902 ms
+2025-04-15 14:07:49 [32minfo[39m: GET /api/v1/leaderboard/teams 200 - 4.450 ms
+2025-04-15 14:07:49 [32minfo[39m: POST /api/v1/auth/login 200 - 16.774 ms
+2025-04-15 14:07:49 [32minfo[39m: GET /api/v1/leaderboard/teams?limit=1&page=1 200 - 2.949 ms
+2025-04-15 14:07:49 [32minfo[39m: POST /api/v1/auth/login 200 - 15.841 ms
+2025-04-15 14:07:49 [31merror[39m: Error: Please authenticate
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/src/middlewares/auth.js:16:19
+    at allFailed (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/authenticate.js:110:18)
+    at attempt (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/authenticate.js:183:28)
+    at JwtStrategy.strategy.fail (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/authenticate.js:314:9)
+    at JwtStrategy.Object.<anonymous>.JwtStrategy.authenticate (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport-jwt/lib/strategy.js:96:21)
+    at attempt (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/authenticate.js:378:16)
+    at authenticate (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/authenticate.js:379:7)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/src/middlewares/auth.js:38:107
+    at new Promise (<anonymous>)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/src/middlewares/auth.js:37:10
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:175:3)
+    at router (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:175:3)
+    at router (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:280:10)
+    at initialize (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/initialize.js:98:5)
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:280:10)
+    at cors (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/cors/lib/index.js:188:7)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/cors/lib/index.js:224:17
+    at callback (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/src/app.js:61:14)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:280:10)
+    at SendStream.error (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/serve-static/index.js:121:7)
+    at SendStream.emit (node:events:519:28)
+    at SendStream.error (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/send/index.js:270:17)
+    at SendStream.onStatError (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/send/index.js:417:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/send/index.js:730:16)
+    at onstat (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/send/index.js:719:14)
+    at FSReqCallback.oncomplete (node:fs:203:21)
+2025-04-15 14:07:49 [31merror[39m: GET /api/v1/leaderboard/teams 401 - 1.060 ms - message: Please authenticate
+2025-04-15 14:07:49 [32minfo[39m: POST /api/v1/auth/login 200 - 15.931 ms
+2025-04-15 14:07:49 [32minfo[39m: GET /api/v1/leaderboard/matches 200 - 11.360 ms
+2025-04-15 14:07:50 [32minfo[39m: POST /api/v1/auth/login 200 - 16.517 ms
+2025-04-15 14:07:50 [31merror[39m: Error: Please authenticate
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/src/middlewares/auth.js:16:19
+    at allFailed (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/authenticate.js:110:18)
+    at attempt (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/authenticate.js:183:28)
+    at JwtStrategy.strategy.fail (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/authenticate.js:314:9)
+    at JwtStrategy.Object.<anonymous>.JwtStrategy.authenticate (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport-jwt/lib/strategy.js:96:21)
+    at attempt (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/authenticate.js:378:16)
+    at authenticate (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/authenticate.js:379:7)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/src/middlewares/auth.js:38:107
+    at new Promise (<anonymous>)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/src/middlewares/auth.js:37:10
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:175:3)
+    at router (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:175:3)
+    at router (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:280:10)
+    at initialize (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/initialize.js:98:5)
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:280:10)
+    at cors (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/cors/lib/index.js:188:7)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/cors/lib/index.js:224:17
+    at callback (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/src/app.js:61:14)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:280:10)
+    at SendStream.error (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/serve-static/index.js:121:7)
+    at SendStream.emit (node:events:519:28)
+    at SendStream.error (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/send/index.js:270:17)
+    at SendStream.onStatError (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/send/index.js:417:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/send/index.js:730:16)
+    at onstat (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/send/index.js:719:14)
+    at FSReqCallback.oncomplete (node:fs:203:21)
+2025-04-15 14:07:50 [31merror[39m: GET /api/v1/leaderboard/matches 401 - 0.969 ms - message: Please authenticate
+2025-04-15 14:07:50 [32minfo[39m: POST /api/v1/auth/login 200 - 16.560 ms
+2025-04-15 14:07:50 [32minfo[39m: GET /api/v1/leaderboard/global 200 - 5.321 ms
+2025-04-15 14:07:50 [32minfo[39m: POST /api/v1/auth/login 200 - 15.802 ms
+2025-04-15 14:07:50 [31merror[39m: Error: Please authenticate
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/src/middlewares/auth.js:16:19
+    at allFailed (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/authenticate.js:110:18)
+    at attempt (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/authenticate.js:183:28)
+    at JwtStrategy.strategy.fail (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/authenticate.js:314:9)
+    at JwtStrategy.Object.<anonymous>.JwtStrategy.authenticate (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport-jwt/lib/strategy.js:96:21)
+    at attempt (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/authenticate.js:378:16)
+    at authenticate (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/authenticate.js:379:7)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/src/middlewares/auth.js:38:107
+    at new Promise (<anonymous>)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/src/middlewares/auth.js:37:10
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:175:3)
+    at router (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:175:3)
+    at router (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:280:10)
+    at initialize (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/passport/lib/middleware/initialize.js:98:5)
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:280:10)
+    at cors (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/cors/lib/index.js:188:7)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/cors/lib/index.js:224:17
+    at callback (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/src/app.js:61:14)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handle [as handle_request] (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:328:13)
+    at /home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/express/lib/router/index.js:280:10)
+    at SendStream.error (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/serve-static/index.js:121:7)
+    at SendStream.emit (node:events:519:28)
+    at SendStream.error (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/send/index.js:270:17)
+    at SendStream.onStatError (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/send/index.js:417:12)
+    at next (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/send/index.js:730:16)
+    at onstat (/home/kblack0610/dev/Games/DodginBalls_root/DodginBalls-k8s/backend/node_modules/send/index.js:719:14)
+    at FSReqCallback.oncomplete (node:fs:203:21)
+2025-04-15 14:07:50 [31merror[39m: GET /api/v1/leaderboard/global 401 - 0.981 ms - message: Please authenticate
+PASS tests/integration/leaderboard.test.js
+  Leaderboard routes
+    GET /api/v1/leaderboard/users
+      ✓ should return 200 and user leaderboard data (237 ms)
+      ✓ should return paginated results (73 ms)
+      ✓ should return 401 if access token is missing (74 ms)
+    GET /api/v1/leaderboard/teams
+      ✓ should return 200 and team leaderboard data (72 ms)
+      ✓ should return paginated results (73 ms)
+      ✓ should return 401 if access token is missing (67 ms)
+    GET /api/v1/leaderboard/matches
+      ✓ should return 200 and recent match data (77 ms)
+      ✓ should return 401 if access token is missing (69 ms)
+    GET /api/v1/leaderboard/global
+      ✓ should return 200 and global statistics (73 ms)
+      ✓ should return 401 if access token is missing (65 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       10 passed, 10 total
+Snapshots:   0 total
+Time:        1.861 s, estimated 2 s
+Ran all test suites matching /tests\/integration\/leaderboard.test.js/i.

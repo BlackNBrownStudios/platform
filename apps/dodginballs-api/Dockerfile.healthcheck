@@ -1,0 +1,20 @@
+FROM node:18-alpine
+
+WORKDIR /usr/src/app
+
+# Install dependencies first (better caching)
+COPY package*.json ./
+RUN npm install express
+
+# Copy only what we need for the health check service
+COPY src/healthcheck.js ./src/
+
+# Set environment variables
+ENV NODE_ENV=production
+ENV PORT=3000
+
+# Expose the port
+EXPOSE 3000
+
+# Run the healthcheck server
+CMD ["node", "src/healthcheck.js"]

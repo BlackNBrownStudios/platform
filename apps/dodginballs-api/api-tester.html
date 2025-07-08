@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DodginBalls API Tester</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .panel {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            min-height: 100px;
+            font-family: monospace;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .response {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .nav-item {
+            padding: 10px 15px;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .nav-item.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .endpoint-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .endpoint {
+            padding: 8px 12px;
+            background-color: #eee;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .endpoint.active {
+            background-color: #007bff;
+            color: white;
+        }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>DodginBalls API Tester</h1>
+    <p>This tool helps you test the DodginBalls backend API endpoints.</p>
+    
+    <div class="container">
+        <div class="panel">
+            <h2>Authentication</h2>
+            <div id="auth-status">Not authenticated</div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Enter your password">
+            </div>
+            <div class="form-group">
+                <button id="login-btn">Login</button>
+                <button id="register-btn">Register</button>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="nav">
+                <div class="nav-item active" data-section="user-section">Users</div>
+                <div class="nav-item" data-section="team-section">Teams</div>
+                <div class="nav-item" data-section="match-section">Matches</div>
+            </div>
+
+            <div id="user-section" class="section active">
+                <h2>User Endpoints</h2>
+                <div class="endpoint-list">
+                    <div class="endpoint active" data-method="GET" data-endpoint="/api/v1/users">Get All Users</div>
+                    <div class="endpoint" data-method="GET" data-endpoint="/api/v1/users/profile">Get My Profile</div>
+                    <div class="endpoint" data-method="GET" data-endpoint="/api/v1/users/{id}">Get User By ID</div>
+                    <div class="endpoint" data-method="PATCH" data-endpoint="/api/v1/users/profile">Update My Profile</div>
+                    <div class="endpoint" data-method="GET" data-endpoint="/api/v1/users/{id}/stats">Get User Stats</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="user-request-method">Method:</label>
+                    <input type="text" id="user-request-method" readonly value="GET">
+                </div>
+                
+                <div class="form-group">
+                    <label for="user-request-url">Endpoint:</label>
+                    <input type="text" id="user-request-url" readonly value="/api/v1/users">
+                </div>
+                
+                <div class="form-group">
+                    <label for="user-params">Parameters (JSON):</label>
+                    <textarea id="user-params" placeholder="{&quot;key&quot;: &quot;value&quot;}"></textarea>
+                </div>
+                
+                <button id="user-send-btn">Send Request</button>
+                
+                <h3>Response:</h3>
+                <div id="user-response" class="response">
+                    No response yet.
+                </div>
+            </div>
+
+            <div id="team-section" class="section">
+                <h2>Team Endpoints</h2>
+                <div class="endpoint-list">
+                    <div class="endpoint active" data-method="GET" data-endpoint="/api/v1/teams">Get All Teams</div>
+                    <div class="endpoint" data-method="POST" data-endpoint="/api/v1/teams">Create Team</div>
+                    <div class="endpoint" data-method="GET" data-endpoint="/api/v1/teams/{id}">Get Team By ID</div>
+                    <div class="endpoint" data-method="PATCH" data-endpoint="/api/v1/teams/{id}">Update Team</div>
+                    <div class="endpoint" data-method="DELETE" data-endpoint="/api/v1/teams/{id}">Delete Team</div>
+                    <div class="endpoint" data-method="POST" data-endpoint="/api/v1/teams/{id}/members">Add Team Member</div>
+                    <div class="endpoint" data-method="DELETE" data-endpoint="/api/v1/teams/{id}/members/{userId}">Remove Team Member</div>
+                    <div class="endpoint" data-method="GET" data-endpoint="/api/v1/teams/{id}/stats">Get Team Stats</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="team-request-method">Method:</label>
+                    <input type="text" id="team-request-method" readonly value="GET">
+                </div>
+                
+                <div class="form-group">
+                    <label for="team-request-url">Endpoint:</label>
+                    <input type="text" id="team-request-url" readonly value="/api/v1/teams">
+                </div>
+                
+                <div class="form-group">
+                    <label for="team-params">Parameters (JSON):</label>
+                    <textarea id="team-params" placeholder="{&quot;key&quot;: &quot;value&quot;}"></textarea>
+                </div>
+                
+                <button id="team-send-btn">Send Request</button>
+                
+                <h3>Response:</h3>
+                <div id="team-response" class="response">
+                    No response yet.
+                </div>
+            </div>
+
+            <div id="match-section" class="section">
+                <h2>Match Endpoints</h2>
+                <div class="endpoint-list">
+                    <div class="endpoint active" data-method="GET" data-endpoint="/api/v1/matches">Get All Matches</div>
+                    <div class="endpoint" data-method="POST" data-endpoint="/api/v1/matches">Create Match</div>
+                    <div class="endpoint" data-method="GET" data-endpoint="/api/v1/matches/{id}">Get Match By ID</div>
+                    <div class="endpoint" data-method="PATCH" data-endpoint="/api/v1/matches/{id}">Update Match</div>
+                    <div class="endpoint" data-method="DELETE" data-endpoint="/api/v1/matches/{id}">Delete Match</div>
+                    <div class="endpoint" data-method="POST" data-endpoint="/api/v1/matches/{id}/start">Start Match</div>
+                    <div class="endpoint" data-method="POST" data-endpoint="/api/v1/matches/{id}/end">End Match</div>
+                    <div class="endpoint" data-method="GET" data-endpoint="/api/v1/matches/{id}/statistics">Get Match Statistics</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="match-request-method">Method:</label>
+                    <input type="text" id="match-request-method" readonly value="GET">
+                </div>
+                
+                <div class="form-group">
+                    <label for="match-request-url">Endpoint:</label>
+                    <input type="text" id="match-request-url" readonly value="/api/v1/matches">
+                </div>
+                
+                <div class="form-group">
+                    <label for="match-params">Parameters (JSON):</label>
+                    <textarea id="match-params" placeholder="{&quot;key&quot;: &quot;value&quot;}"></textarea>
+                </div>
+                
+                <button id="match-send-btn">Send Request</button>
+                
+                <h3>Response:</h3>
+                <div id="match-response" class="response">
+                    No response yet.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // API Base URL
+        const API_BASE_URL = 'http://localhost:3006';
+        
+        // Token storage
+        let authToken = localStorage.getItem('authToken');
+        const authStatus = document.getElementById('auth-status');
+        
+        // Update auth status display
+        function updateAuthStatus() {
+            if (authToken) {
+                authStatus.textContent = 'Authenticated';
+                authStatus.style.color = '#4CAF50';
+            } else {
+                authStatus.textContent = 'Not authenticated';
+                authStatus.style.color = 'red';
+            }
+        }
+        
+        updateAuthStatus();
+        
+        // Authentication
+        document.getElementById('login-btn').addEventListener('click', async () => {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (!email || !password) {
+                alert('Please enter email and password');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/v1/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    authToken = data.tokens.access.token;
+                    localStorage.setItem('authToken', authToken);
+                    updateAuthStatus();
+                    alert('Login successful!');
+                } else {
+                    alert(`Login failed: ${data.message}`);
+                }
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            }
+        });
+        
+        document.getElementById('register-btn').addEventListener('click', async () => {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (!email || !password) {
+                alert('Please enter email and password');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/v1/auth/register`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ 
+                        email, 
+                        password,
+                        name: email.split('@')[0] // Simple name from email
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert('Registration successful! You can now login.');
+                } else {
+                    alert(`Registration failed: ${data.message}`);
+                }
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            }
+        });
+        
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            authToken = null;
+            localStorage.removeItem('authToken');
+            updateAuthStatus();
+            alert('Logged out successfully!');
+        });
+        
+        // Navigation
+        const navItems = document.querySelectorAll('.nav-item');
+        const sections = document.querySelectorAll('.section');
+        
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Update active nav item
+                navItems.forEach(navItem => navItem.classList.remove('active'));
+                item.classList.add('active');
+                
+                // Show active section
+                const sectionId = item.getAttribute('data-section');
+                sections.forEach(section => section.classList.remove('active'));
+                document.getElementById(sectionId).classList.add('active');
+            });
+        });
+        
+        // Endpoint selection
+        function setupEndpointSelection(sectionId) {
+            const endpoints = document.querySelectorAll(`#${sectionId} .endpoint`);
+            const methodInput = document.getElementById(`${sectionId.split('-')[0]}-request-method`);
+            const urlInput = document.getElementById(`${sectionId.split('-')[0]}-request-url`);
+            
+            endpoints.forEach(endpoint => {
+                endpoint.addEventListener('click', () => {
+                    // Update active endpoint
+                    endpoints.forEach(ep => ep.classList.remove('active'));
+                    endpoint.classList.add('active');
+                    
+                    // Update method and URL inputs
+                    methodInput.value = endpoint.getAttribute('data-method');
+                    urlInput.value = endpoint.getAttribute('data-endpoint');
+                });
+            });
+        }
+        
+        setupEndpointSelection('user-section');
+        setupEndpointSelection('team-section');
+        setupEndpointSelection('match-section');
+        
+        // Send request function
+        async function sendRequest(section) {
+            const methodInput = document.getElementById(`${section}-request-method`);
+            const urlInput = document.getElementById(`${section}-request-url`);
+            const paramsInput = document.getElementById(`${section}-params`);
+            const responseDiv = document.getElementById(`${section}-response`);
+            
+            const method = methodInput.value;
+            let url = `${API_BASE_URL}${urlInput.value}`;
+            let params = {};
+            
+            try {
+                if (paramsInput.value) {
+                    params = JSON.parse(paramsInput.value);
+                }
+            } catch (error) {
+                alert('Invalid JSON in parameters');
+                return;
+            }
+            
+            // Replace path parameters
+            if (url.includes('{')) {
+                for (const key in params) {
+                    if (url.includes(`{${key}}`)) {
+                        url = url.replace(`{${key}}`, params[key]);
+                        delete params[key];
+                    }
+                }
+            }
+            
+            // Add query parameters for GET requests
+            if (method === 'GET' && Object.keys(params).length > 0) {
+                const queryParams = new URLSearchParams();
+                for (const key in params) {
+                    queryParams.append(key, params[key]);
+                }
+                url = `${url}?${queryParams.toString()}`;
+                params = {};
+            }
+            
+            try {
+                const options = {
+                    method,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                };
+                
+                // Add authorization header if authenticated
+                if (authToken) {
+                    options.headers['Authorization'] = `Bearer ${authToken}`;
+                }
+                
+                // Add body for non-GET requests
+                if (method !== 'GET' && Object.keys(params).length > 0) {
+                    options.body = JSON.stringify(params);
+                }
+                
+                responseDiv.textContent = 'Loading...';
+                
+                const response = await fetch(url, options);
+                const data = await response.json();
+                
+                responseDiv.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                responseDiv.textContent = `Error: ${error.message}`;
+            }
+        }
+        
+        // Add event listeners for send buttons
+        document.getElementById('user-send-btn').addEventListener('click', () => sendRequest('user'));
+        document.getElementById('team-send-btn').addEventListener('click', () => sendRequest('team'));
+        document.getElementById('match-send-btn').addEventListener('click', () => sendRequest('match'));
+    </script>
+</body>
+</html>

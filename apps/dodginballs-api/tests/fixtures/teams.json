@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "607f191e810c19729de860fa",
+    "name": "Red Rockets",
+    "color": "red",
+    "captain": "507f191e810c19729de860ea",
+    "members": ["507f191e810c19729de860ea", "507f191e810c19729de860eb"],
+    "stats": { "wins": 3, "losses": 1, "totalMatches": 4, "totalScore": 200 }
+  },
+  {
+    "_id": "607f191e810c19729de860fb",
+    "name": "Blue Blasters",
+    "color": "blue",
+    "captain": "507f191e810c19729de860ec",
+    "members": ["507f191e810c19729de860ec"],
+    "stats": { "wins": 1, "losses": 2, "totalMatches": 3, "totalScore": 80 }
+  }
+]

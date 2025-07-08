@@ -1,0 +1,21 @@
+(node:171719) [MONGODB DRIVER] Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:171719) [MONGODB DRIVER] Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+PASS tests/unit/models/user.test.js
+  User model
+    User validation
+      ✓ should correctly validate a valid user (16 ms)
+      ✓ should throw a validation error if email is invalid (7 ms)
+      ✓ should throw a validation error if password is too short (2 ms)
+      ✓ should throw a validation error if password does not contain numbers (2 ms)
+      ✓ should throw a validation error if password does not contain letters (2 ms)
+      ✓ should throw a validation error if role is invalid (1 ms)
+    User password methods
+      ✓ should hash password before saving to database (150 ms)
+      ✓ should correctly verify matching passwords (42 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       8 passed, 8 total
+Snapshots:   0 total
+Time:        0.896 s, estimated 1 s
+Ran all test suites matching /tests\/unit\/models\/user.test.js/i.
