@@ -11,7 +11,7 @@ export class EmailService {
     }
     
     this.config = config;
-    this.transporter = nodemailer.createTransporter(config.email.smtp);
+    this.transporter = nodemailer.createTransport(config.email.smtp);
     
     // Verify connection configuration
     this.transporter.verify().catch((err) => {
@@ -38,7 +38,7 @@ export class EmailService {
    */
   async sendResetPasswordEmail(to: string, token: string): Promise<void> {
     const subject = 'Reset password';
-    const resetPasswordUrl = `${this.config.frontendUrl}/reset-password?token=${token}`;
+    const resetPasswordUrl = `${this.config.frontendUrl || 'http://localhost:3000'}/reset-password?token=${token}`;
     const html = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <h2>Reset Password</h2>
@@ -58,7 +58,7 @@ export class EmailService {
    */
   async sendVerificationEmail(to: string, token: string): Promise<void> {
     const subject = 'Email Verification';
-    const verificationEmailUrl = `${this.config.frontendUrl}/verify-email?token=${token}`;
+    const verificationEmailUrl = `${this.config.frontendUrl || 'http://localhost:3000'}/verify-email?token=${token}`;
     const html = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <h2>Email Verification</h2>

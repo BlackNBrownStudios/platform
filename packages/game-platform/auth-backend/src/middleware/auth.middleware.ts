@@ -4,10 +4,7 @@ import httpStatus from 'http-status';
 import { ApiError } from '@platform/backend-core';
 import { IUser } from '../models/user.model';
 import { TokenTypes } from '../models/token.model';
-
-export interface AuthRequest extends Request {
-  user?: IUser;
-}
+import { AuthRequest } from '../types/auth';
 
 const verifyCallback = (
   req: AuthRequest,

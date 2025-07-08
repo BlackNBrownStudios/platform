@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import httpStatus from 'http-status';
 import { ApiError, catchAsync, pick } from '@platform/backend-core';
 import { UserService } from '../services/user.service';
-import { AuthRequest } from '../middleware/auth.middleware';
+import { AuthRequest } from '../types/auth';
 
 export class UserController {
   private userService: UserService;

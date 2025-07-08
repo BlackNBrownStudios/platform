@@ -16,7 +16,7 @@ export const createGoogleStrategy = (config: AuthConfig) => {
 
   return new GoogleStrategy(
     {
-      clientID: config.oauth.google.clientID,
+      clientID: config.oauth.google.clientId,
       clientSecret: config.oauth.google.clientSecret,
       callbackURL: config.oauth.google.callbackURL,
     },

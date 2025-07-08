@@ -1,6 +1,5 @@
-// @ts-ignore - morgan types issue
 import morgan from 'morgan';
-import { Request, Response } from 'express';
+import { Request, Response, RequestHandler } from 'express';
 import { logger } from '../utils/logger';
 
 // Extend Express types for morgan
@@ -55,4 +54,4 @@ export const requestLogger = morgan(
       return req.url === '/health' || req.url === '/healthz';
     },
   }
-);
+) as RequestHandler;

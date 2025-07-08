@@ -44,4 +44,5 @@ export interface AuthConfig {
   oauth?: OAuthConfig;
   email?: EmailConfig;
   bcryptRounds?: number;
+  frontendUrl?: string;
 }

@@ -6,7 +6,7 @@ import { TokenService } from '../services/token.service';
 import { UserService } from '../services/user.service';
 import { EmailService } from '../services/email.service';
 import { AuthConfig } from '../types/config';
-import { AuthRequest } from '../middleware/auth.middleware';
+import { AuthRequest } from '../types/auth';
 import { GoogleProfile } from '../strategies';
 
 export class AuthController {
