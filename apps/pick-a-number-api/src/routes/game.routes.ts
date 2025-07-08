@@ -1,9 +1,10 @@
 import { Router } from 'express';
-import { auth, catchAsync, validate } from '@platform/backend-core';
+import { catchAsync, validate } from '@platform/backend-core';
+import { auth } from '@platform/auth-backend';
 import { GameService } from '../services/game.service';
 import { gameValidation } from '../validations/game.validation';
 
-const router = Router();
+const router: Router = Router();
 const gameService = new GameService();
 
 // All routes require authentication

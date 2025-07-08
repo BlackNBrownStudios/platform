@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { catchAsync } from '@platform/backend-core';
 import { GameService } from '../services/game.service';
 
-const router = Router();
+const router: Router = Router();
 const gameService = new GameService();
 
 // Get leaderboard (public route)
