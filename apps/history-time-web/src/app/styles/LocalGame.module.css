@@ -1,0 +1,86 @@
+.localGamePageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.localGamePageContainer h1 {
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  text-align: center;
+}
+
+.errorContainer h2 {
+  color: #e63946;
+  margin-bottom: 1rem;
+}
+
+.errorContainer button {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #457b9d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.errorContainer button:hover {
+  background-color: #1d3557;
+}
+
+.gameFinishedContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  text-align: center;
+}
+
+.gameFinishedContainer h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+.buttonContainer button {
+  padding: 0.75rem 1.5rem;
+  background-color: #457b9d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.buttonContainer button:hover {
+  background-color: #1d3557;
+}
+
+@media (max-width: 600px) {
+  .localGamePageContainer {
+    padding: 1rem;
+  }
+
+  .buttonContainer {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,25 @@
+appId: com.historytime.mobile
+---
+- launchApp
+
+# Verify home screen elements
+- assertVisible: 'History Time'
+- assertVisible: 'Start Game'
+- assertVisible: 'Settings'
+- assertVisible: 'How to Play'
+
+# Navigate to How to Play screen
+- tapOn: 'How to Play'
+- assertVisible: 'Game Rules'
+- back
+
+# Navigate to Settings screen
+- tapOn: 'Settings'
+- assertVisible: 'Theme'
+- assertVisible: 'Sound'
+- back
+
+# Navigate to game setup screens
+- tapOn: 'Start Game'
+- assertVisible: 'Select Category'
+- back

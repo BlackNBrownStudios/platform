@@ -1,0 +1,69 @@
+.scoreboardContainer {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  min-width: 250px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.scoreboardTitle {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 1.2rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.scoresList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.playerScore {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background-color: #e9ecef;
+  transition: background-color 0.3s;
+}
+
+.currentPlayer {
+  background-color: #457b9d;
+  color: white;
+  font-weight: bold;
+}
+
+.playerName {
+  font-weight: 500;
+}
+
+.playerScoreValue {
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  min-width: 2rem;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .scoreboardContainer {
+    min-width: 100%;
+  }
+
+  .scoresList {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .playerScore {
+    flex: 1;
+    min-width: 120px;
+  }
+}

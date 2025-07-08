@@ -1,0 +1,51 @@
+appId: com.historytime.mobile
+---
+# Common reusable flows for Maestro tests
+
+# This flow starts a new game
+- runFlow:
+    name: 'start-new-game'
+    commands:
+      - tapOn:
+          text: 'Start Game'
+      - tapOn:
+          text: 'World History'
+      - tapOn:
+          text: 'Easy'
+      - waitForInvisible:
+          text: 'Loading'
+          timeout: 10000
+
+# This flow places a card on the timeline
+- runFlow:
+    name: 'place-card'
+    commands:
+      - tapOn:
+          text: 'Tap to place'
+          index: 0
+      - tapOn:
+          text: 'Tap to place card'
+      - waitForInvisible:
+          text: 'Selected Card'
+          timeout: 5000
+
+# This flow submits the timeline
+- runFlow:
+    name: 'submit-timeline'
+    commands:
+      - tapOn:
+          text: 'Submit Timeline'
+      - waitForVisible:
+          text: 'Game Completed!'
+          timeout: 10000
+
+# This flow returns to the home screen
+- runFlow:
+    name: 'return-to-home'
+    commands:
+      - tapOn:
+          text: 'Back to Home'
+          optional: true
+      - waitForVisible:
+          text: 'History Time'
+          timeout: 5000

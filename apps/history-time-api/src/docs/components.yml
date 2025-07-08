@@ -1,0 +1,202 @@
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+          format: email
+        name:
+          type: string
+        role:
+          type: string
+          enum: [user, admin]
+        isEmailVerified:
+          type: boolean
+        stats:
+          type: object
+          properties:
+            gamesPlayed:
+              type: number
+            gamesWon:
+              type: number
+            highScore:
+              type: number
+            totalScore:
+              type: number
+            averageScore:
+              type: number
+            fastestGameTime:
+              type: number
+        preferences:
+          type: object
+          properties:
+            historicalPeriodPreferences:
+              type: array
+              items:
+                type: string
+            difficulty:
+              type: string
+              enum: [easy, medium, hard, expert]
+            theme:
+              type: string
+      example:
+        id: 5ebac534954b54139806c112
+        email: example@example.com
+        name: John Doe
+        role: user
+        isEmailVerified: false
+
+    Card:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        date:
+          type: string
+          format: date
+        year:
+          type: number
+        imageUrl:
+          type: string
+        category:
+          type: string
+        subcategory:
+          type: string
+        difficulty:
+          type: string
+        region:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        isVerified:
+          type: boolean
+      example:
+        id: 5ebac534954b54139806c113
+        title: Moon Landing
+        description: First humans land on the Moon
+        date: 1969-07-20T00:00:00.000Z
+        year: 1969
+        category: Space Exploration
+        difficulty: medium
+        isVerified: true
+
+    Game:
+      type: object
+      properties:
+        id:
+          type: string
+        userId:
+          type: string
+        cards:
+          type: array
+          items:
+            type: object
+            properties:
+              cardId:
+                type: string
+              isCorrect:
+                type: boolean
+              placementOrder:
+                type: number
+              placementPosition:
+                type: number
+              timeTaken:
+                type: number
+        difficulty:
+          type: string
+        status:
+          type: string
+          enum: [in_progress, completed, abandoned]
+        score:
+          type: number
+        correctPlacements:
+          type: number
+        incorrectPlacements:
+          type: number
+        timeStarted:
+          type: string
+          format: date-time
+        timeEnded:
+          type: string
+          format: date-time
+        totalTimeTaken:
+          type: number
+        isWin:
+          type: boolean
+      example:
+        id: 5ebac534954b54139806c114
+        userId: 5ebac534954b54139806c112
+        difficulty: medium
+        status: completed
+        score: 750
+        correctPlacements: 8
+        incorrectPlacements: 2
+        totalTimeTaken: 180
+        isWin: true
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: number
+        message:
+          type: string
+      example:
+        code: 401
+        message: Please authenticate
+
+  responses:
+    DuplicateEmail:
+      description: Email already taken
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 400
+            message: Email already taken
+
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 401
+            message: Please authenticate
+
+    Forbidden:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 403
+            message: Forbidden
+
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 404
+            message: Not found
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

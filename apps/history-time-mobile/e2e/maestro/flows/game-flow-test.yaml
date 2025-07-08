@@ -1,0 +1,27 @@
+appId: com.historytime.mobile
+---
+- launchApp
+
+# Test case: Complete game flow from start to finish
+# Navigate to game screen
+- assertVisible: 'History Time'
+- tapOn: 'Start Game'
+- assertVisible: 'Select Category'
+- tapOn: 'World History'
+- assertVisible: 'Select Difficulty'
+- tapOn: 'Easy'
+
+# Place first card
+- assertVisible: 'Your Cards'
+- tapOn: 'Tap to place'
+- tapOn: 'Tap to place card'
+
+# Place second card
+- assertVisible: 'Your Cards'
+- tapOn: 'Tap to place'
+- tapOn: 'Tap to place card'
+
+# Submit timeline and view results
+- tapOn: 'Submit Timeline'
+- assertVisible: 'Game Completed!'
+- assertVisible: 'Score:'

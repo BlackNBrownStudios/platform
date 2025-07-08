@@ -1,0 +1,50 @@
+appId: com.historytime.mobile
+---
+# Reference test file showing correct Maestro syntax for History Time Mobile
+# This file demonstrates proper format and common commands
+
+# Basic commands
+- launchApp # Launch the app
+- sleep: 2000 # Wait for 2 seconds (in milliseconds)
+- tapOn: 'Text' # Tap on element with text "Text"
+- assertVisible: 'Text' # Assert text is visible on screen
+- assertNotVisible: 'Text' # Assert text is not visible
+- inputText: 'Hello' # Input text (a text field must be focused)
+- back # Press back button
+- pressKey: home # Press home key
+- pressKey: volumeUp
+- pressKey: volumeDown
+
+# Extended selectors
+- tapOn:
+    text: 'Button text' # Tap by text
+    id: 'button_id' # Tap by ID
+    index: 0 # First occurrence if multiple matches
+
+- assertVisible:
+    id: 'element_id' # Assert by ID
+    text: 'Exact text' # Assert by exact text
+
+# Conditional elements with ? suffix (for optional elements)
+- tapOn?: 'May not exist' # Will not fail if element doesn't exist
+- assertVisible?: 'Optional element'
+
+# Screenshots
+- takeScreenshot: 'screen_name' # Take a screenshot
+
+# Assertions
+- assertVisible: 'Text should be visible'
+- assertNotVisible: 'Text should not be visible'
+- assertTrue: 'condition == true'
+- assertEqual:
+    expected: 'Expected value'
+    actual: 'Actual value'
+
+# Scrolling
+- scroll:
+    direction: DOWN # UP, DOWN, LEFT, RIGHT
+    amount: 50 # percentage of screen to scroll
+
+# Waiting
+- waitForVisible: 'Text to wait for'
+- waitForNotVisible: 'Text to wait to disappear'

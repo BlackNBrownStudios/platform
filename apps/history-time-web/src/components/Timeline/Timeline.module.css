@@ -1,0 +1,162 @@
+.timeline-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content {
+  position: relative;
+  height: 100%;
+  min-height: 400px;
+}
+
+.timeline-axis {
+  position: absolute;
+  background-color: #333333;
+  height: 2px;
+}
+
+.event-marker-container {
+  position: relative;
+  display: inline-block;
+}
+
+.event-marker-container:hover .event-tooltip,
+.event-marker-container:focus-within .event-tooltip {
+  opacity: 1 !important;
+}
+
+.event-marker {
+  transition: all 0.2s ease;
+}
+
+.event-marker:hover,
+.event-marker:focus {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+}
+
+.timeline-controls {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.timeline-controls button {
+  padding: 8px 16px;
+  border: 1px solid #dee2e6;
+  background-color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.timeline-controls button:hover {
+  background-color: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.timeline-controls button:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+.timeline-controls button:active {
+  transform: translateY(1px);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .timeline-container {
+    min-height: 300px;
+  }
+
+  .timeline-controls {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .timeline-controls button {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .event-tooltip {
+    font-size: 12px;
+    max-width: 180px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-container {
+    min-height: 250px;
+  }
+
+  .timeline-controls {
+    justify-content: center;
+  }
+
+  .timeline-controls span {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .timeline-container {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+
+  .timeline-axis {
+    background-color: #cccccc;
+  }
+
+  .timeline-controls {
+    background-color: #2a2a2a;
+  }
+
+  .timeline-controls button {
+    background-color: #3a3a3a;
+    border-color: #4a4a4a;
+    color: #ffffff;
+  }
+
+  .timeline-controls button:hover {
+    background-color: #4a4a4a;
+    border-color: #5a5a5a;
+  }
+}
+
+/* Accessibility improvements */
+.timeline-container:focus {
+  outline: 3px solid #0066cc;
+  outline-offset: 2px;
+}
+
+.event-marker:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: 4px;
+}
+
+/* Print styles */
+@media print {
+  .timeline-controls {
+    display: none;
+  }
+
+  .timeline-container {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+}

@@ -1,0 +1,27 @@
+appId: com.historytime.mobile
+---
+- launchApp
+
+# Test case: User can select a card and place it on the timeline
+- assertVisible: 'History Time'
+- tapOn: 'Start Game'
+- assertVisible: 'Select Category'
+- tapOn: 'World History'
+- assertVisible: 'Select Difficulty'
+- tapOn: 'Easy'
+
+# Wait for game to load and verify elements
+- assertVisible: 'Timeline'
+
+# Select a card from hand
+- assertVisible: 'Your Cards'
+- tapOn: 'Tap to place'
+- assertVisible: 'Selected Card'
+
+# Place the card on the timeline
+- assertVisible: 'Tap to place card'
+- tapOn: 'Tap to place card'
+
+# Verify card was placed correctly
+- assertVisible: 'Timeline'
+- assertVisible: 'Your Cards'
