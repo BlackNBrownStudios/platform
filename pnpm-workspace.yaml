@@ -1,0 +1,8 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+  - "packages/game-platform/*"
+  - "packages/shared/*"
+  - "packages/ui/*"
+  - "services/*"
+  - "tools/*"
