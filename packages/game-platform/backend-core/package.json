@@ -4,10 +4,14 @@
   "description": "Core backend utilities for game platform - Express setup, middleware, error handling",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts --clean",
     "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
-    "test": "jest",
+    "test": "NODE_ENV=test jest",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -24,13 +28,18 @@
     "xss-clean": "^0.1.4"
   },
   "devDependencies": {
+    "@jest/globals": "^30.0.4",
     "@types/compression": "^1.7.2",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
+    "@types/jest": "^29.5.14",
     "@types/morgan": "^1.9.4",
     "@types/node": "^20.3.1",
+    "@types/supertest": "^6.0.3",
     "jest": "^29.5.0",
     "mongoose": "^8.16.2",
+    "supertest": "^6.3.4",
+    "ts-jest": "^29.4.0",
     "tsup": "^7.1.0",
     "typescript": "^5.1.3"
   },
