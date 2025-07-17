@@ -1,5 +1,6 @@
 import { Strategy as GoogleStrategy, Profile } from 'passport-google-oauth20';
 import { AuthConfig } from '../types/config';
+import { AuthService } from '../services/auth.service';
 
 export interface GoogleProfile {
   id: string;
@@ -13,6 +14,8 @@ export const createGoogleStrategy = (config: AuthConfig) => {
   if (!config.oauth?.google) {
     throw new Error('Google OAuth configuration is missing');
   }
+
+  const authService = new AuthService(config);
 
   return new GoogleStrategy(
     {
@@ -30,7 +33,10 @@ export const createGoogleStrategy = (config: AuthConfig) => {
           picture: profile.photos?.[0]?.value,
         };
         
-        return done(null, googleProfile);
+        // Get or create the user
+        const user = await authService.loginWithOAuth('google', googleProfile);
+        
+        return done(null, user);
       } catch (error) {
         return done(error as Error);
       }

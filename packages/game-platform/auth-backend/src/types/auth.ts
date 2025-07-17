@@ -12,6 +12,6 @@ export interface AuthTokens {
   };
 }
 
-export interface AuthRequest extends Request {
+export type AuthRequest = Request & {
   user?: IUser;
-}
+};

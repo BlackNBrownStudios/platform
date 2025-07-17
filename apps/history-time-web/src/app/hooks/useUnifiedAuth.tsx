@@ -1,7 +1,8 @@
 'use client';
 
 import React, { createContext, useContext, useMemo, useCallback } from 'react';
-import { useAuth as useAuthCore, AuthService, WebStorageAdapter } from '@history-time/auth';
+// TODO: Replace with platform auth when available
+// import { useAuth as useAuthCore, AuthService, WebStorageAdapter } from '@history-time/auth';
 import { useConfig } from './useConfig';
 
 interface AuthContextType {
@@ -21,13 +22,25 @@ export const UnifiedAuthProvider = ({ children }: { children: React.ReactNode })
   const { getApiBaseUrl } = useConfig();
   const apiUrl = getApiBaseUrl();
 
-  const storage = useMemo(() => new WebStorageAdapter(), []);
-  const api = useMemo(
-    () => new AuthService(apiUrl, () => storage.getAccessToken()),
-    [apiUrl, storage]
-  );
+  // Mock auth state for now
+  const authState = {
+    user: null,
+    loading: false,
+    error: null,
+    isAuthenticated: false,
+  };
 
-  const [authState, authActions] = useAuthCore({ storage, api, autoLogin: true });
+  const authActions = {
+    login: async (email: string, password: string) => {
+      console.log('Mock login:', email);
+    },
+    register: async (name: string, email: string, password: string) => {
+      console.log('Mock register:', name, email);
+    },
+    logout: async () => {
+      console.log('Mock logout');
+    },
+  };
 
   const loginAsGuest = useCallback(
     async (name?: string) => {

@@ -8,7 +8,7 @@ const router: Router = Router();
 const gameService = new GameService();
 
 // All routes require authentication
-router.use(auth());
+router.use(auth() as any);
 
 // Start a new game
 router.post(

@@ -7,15 +7,17 @@ import { UserService } from '../services/user.service';
 import { EmailService } from '../services/email.service';
 import { AuthConfig } from '../types/config';
 import { AuthRequest } from '../types/auth';
-import { GoogleProfile } from '../strategies';
+import { IUser } from '../models/user.model';
 
 export class AuthController {
   private authService: AuthService;
   private userService: UserService;
   private tokenService: TokenService;
   private emailService?: EmailService;
+  private config: AuthConfig;
 
   constructor(config: AuthConfig) {
+    this.config = config;
     this.authService = new AuthService(config);
     this.userService = new UserService();
     this.tokenService = new TokenService(config);
@@ -105,12 +107,12 @@ export class AuthController {
 
   // OAuth callbacks
   googleCallback = catchAsync(async (req: Request, res: Response) => {
-    const profile = req.user as GoogleProfile;
-    const user = await this.authService.loginWithOAuth('google', profile);
+    // User is already authenticated by passport and attached to req.user
+    const user = req.user as IUser;
     const tokens = await this.tokenService.generateAuthTokens(user);
     
     // Redirect to frontend with tokens
-    const redirectUrl = new URL(process.env.FRONTEND_URL || 'http://localhost:3000');
+    const redirectUrl = new URL(this.config.frontendUrl || 'http://localhost:3000');
     redirectUrl.pathname = '/auth/callback';
     redirectUrl.searchParams.append('accessToken', tokens.access.token);
     redirectUrl.searchParams.append('refreshToken', tokens.refresh.token);
