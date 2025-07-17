@@ -1,2 +1,4 @@
-module.exports.toJSON = require('./toJSON.plugin');
-module.exports.paginate = require('./paginate.plugin');
+const { plugins } = require('@platform/backend-core');
+
+module.exports.toJSON = plugins.toJSON;
+module.exports.paginate = plugins.paginate;

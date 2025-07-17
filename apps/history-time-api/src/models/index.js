@@ -1,4 +1,5 @@
-module.exports.User = require('./user.model.ts').default;
+const { User } = require('@platform/auth-backend');
+module.exports.User = User;
 module.exports.Card = require('./card.model');
 module.exports.Game = require('./game.model');
 module.exports.MultiplayerGame = require('./multiplayerGame.model');

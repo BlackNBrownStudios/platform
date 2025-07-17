@@ -1,8 +1,6 @@
 const express = require('express');
-const validate = require('../../middlewares/validate');
-const userValidation = require('../../validations/user.validation');
-const userController = require('../../controllers/user.controller');
-const auth = require('../../middlewares/auth');
+const { validate } = require('@platform/backend-core');
+const { userValidation, userController, auth } = require('@platform/auth-backend');
 const bypassAuth = require('../../middlewares/bypassAuth');
 const config = require('../../config/config');
 
