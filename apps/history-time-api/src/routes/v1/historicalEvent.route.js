@@ -5,8 +5,8 @@
 const express = require('express');
 
 const historicalEventController = require('../../controllers/historicalEvent.controller');
-const auth = require('../../middlewares/auth');
-const validate = require('../../middlewares/validate');
+const { auth } = require('@platform/auth-backend');
+const { validate } = require('@platform/backend-core');
 const historicalEventValidation = require('../../validations/historicalEvent.validation');
 
 const router = express.Router();

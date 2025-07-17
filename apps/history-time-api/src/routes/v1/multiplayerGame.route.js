@@ -1,8 +1,8 @@
 const express = require('express');
 
 const multiplayerGameController = require('../../controllers/multiplayerGame.controller');
-const auth = require('../../middlewares/auth');
-const validate = require('../../middlewares/validate');
+const { auth } = require('@platform/auth-backend');
+const { validate } = require('@platform/backend-core');
 const multiplayerGameValidation = require('../../validations/multiplayerGame.validation');
 
 const router = express.Router();

@@ -1,8 +1,8 @@
 const express = require('express');
 
 const cardController = require('../../controllers/card.controller');
-const auth = require('../../middlewares/auth');
-const validate = require('../../middlewares/validate');
+const { auth } = require('@platform/auth-backend');
+const { validate } = require('@platform/backend-core');
 const cardValidation = require('../../validations/card.validation');
 
 const router = express.Router();

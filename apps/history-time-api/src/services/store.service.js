@@ -1,7 +1,7 @@
 const httpStatus = require('http-status');
 
 const { StoreItem, User } = require('../models');
-const ApiError = require('../utils/ApiError');
+const { ApiError } = require('@platform/backend-core');
 
 /**
  * Create a store item

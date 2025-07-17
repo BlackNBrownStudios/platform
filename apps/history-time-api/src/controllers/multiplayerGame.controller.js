@@ -2,8 +2,8 @@ const httpStatus = require('http-status');
 const mongoose = require('mongoose');
 
 const { multiplayerGameService } = require('../services');
-const ApiError = require('../utils/ApiError');
-const catchAsync = require('../utils/catchAsync');
+const { ApiError } = require('@platform/backend-core');
+const { catchAsync } = require('@platform/backend-core');
 
 /**
  * Create a multiplayer game

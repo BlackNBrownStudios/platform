@@ -1,8 +1,8 @@
 const express = require('express');
 
 const storeController = require('../../controllers/store.controller');
-const auth = require('../../middlewares/auth');
-const validate = require('../../middlewares/validate');
+const { auth } = require('@platform/auth-backend');
+const { validate } = require('@platform/backend-core');
 const storeValidation = require('../../validations/store.validation');
 
 const router = express.Router();

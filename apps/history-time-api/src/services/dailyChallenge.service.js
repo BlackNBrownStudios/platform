@@ -2,7 +2,7 @@ const httpStatus = require('http-status');
 
 const logger = require('../config/logger');
 const { DailyChallenge, User, StoreItem } = require('../models');
-const ApiError = require('../utils/ApiError');
+const { ApiError } = require('@platform/backend-core');
 
 /**
  * Get today's challenge (creates one if it doesn't exist)

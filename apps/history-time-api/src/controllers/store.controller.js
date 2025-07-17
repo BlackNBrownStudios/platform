@@ -1,8 +1,8 @@
 const httpStatus = require('http-status');
 
 const { storeService, userService } = require('../services');
-const ApiError = require('../utils/ApiError');
-const catchAsync = require('../utils/catchAsync');
+const { ApiError } = require('@platform/backend-core');
+const { catchAsync } = require('@platform/backend-core');
 
 const getStoreItems = catchAsync(async (req, res) => {
   const filter = {};

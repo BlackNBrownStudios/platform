@@ -1,8 +1,8 @@
 const express = require('express');
 
 const dailyChallengeController = require('../../controllers/dailyChallenge.controller');
-const auth = require('../../middlewares/auth');
-const validate = require('../../middlewares/validate');
+const { auth } = require('@platform/auth-backend');
+const { validate } = require('@platform/backend-core');
 const dailyChallengeValidation = require('../../validations/dailyChallenge.validation');
 
 const router = express.Router();

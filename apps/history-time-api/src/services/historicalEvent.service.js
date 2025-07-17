@@ -5,7 +5,7 @@
 const httpStatus = require('http-status');
 
 const { HistoricalEvent } = require('../models');
-const ApiError = require('../utils/ApiError');
+const { ApiError } = require('@platform/backend-core');
 
 /**
  * Create a historical event

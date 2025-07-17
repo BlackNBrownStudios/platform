@@ -9,6 +9,7 @@ declare const config: {
   };
   jwt: {
     secret: string;
+    refreshSecret?: string;
     accessExpirationMinutes: number;
     refreshExpirationDays: number;
     resetPasswordExpirationMinutes: number;
@@ -24,6 +25,24 @@ declare const config: {
       };
     };
     from: string;
+  };
+  frontendUrl?: string;
+  google?: {
+    clientID: string;
+    clientSecret: string;
+    callbackURL: string;
+  };
+  facebook?: {
+    appId: string;
+    appSecret: string;
+    callbackURL: string;
+  };
+  apple?: {
+    clientID: string;
+    teamID: string;
+    keyID: string;
+    privateKey?: string;
+    callbackURL?: string;
   };
 };
 

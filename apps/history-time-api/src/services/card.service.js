@@ -1,7 +1,7 @@
 const httpStatus = require('http-status');
 
 const { Card } = require('../models');
-const ApiError = require('../utils/ApiError');
+const { ApiError } = require('@platform/backend-core');
 
 /**
  * Create a historical card

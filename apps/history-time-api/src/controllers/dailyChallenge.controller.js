@@ -1,8 +1,8 @@
 const httpStatus = require('http-status');
 
 const { dailyChallengeService, gameService, userService } = require('../services');
-const ApiError = require('../utils/ApiError');
-const catchAsync = require('../utils/catchAsync');
+const { ApiError } = require('@platform/backend-core');
+const { catchAsync } = require('@platform/backend-core');
 
 const getTodayChallenge = catchAsync(async (req, res) => {
   // Get or generate today's challenge

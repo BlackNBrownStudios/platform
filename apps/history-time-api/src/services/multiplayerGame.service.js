@@ -2,7 +2,7 @@ const httpStatus = require('http-status');
 const mongoose = require('mongoose');
 
 const { MultiplayerGame, Card, User } = require('../models');
-const ApiError = require('../utils/ApiError');
+const { ApiError } = require('@platform/backend-core');
 
 /**
  * Generate a random room code

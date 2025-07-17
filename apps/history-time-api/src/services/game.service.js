@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const logger = require('../config/logger');
 const { Game, User, Card } = require('../models');
-const ApiError = require('../utils/ApiError');
+const { ApiError } = require('@platform/backend-core');
 
 const cardService = require('./card.service');
 const userService = require('./user.service');
