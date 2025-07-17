@@ -1,9 +1,5 @@
-const tokenTypes = {
-  ACCESS: 'access',
-  REFRESH: 'refresh',
-  RESET_PASSWORD: 'resetPassword',
-  VERIFY_EMAIL: 'verifyEmail',
-};
+// Re-export tokenTypes from platform auth-backend package
+const { tokenTypes } = require('@platform/auth-backend');
 
 module.exports = {
   tokenTypes,

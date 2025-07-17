@@ -1,5 +1,5 @@
 const express = require('express');
-const authRoute = require('./auth.route');
+const { createAuthRoutes } = require('@platform/auth-backend');
 const userRoute = require('./user.route');
 const teamRoute = require('./team.route');
 const matchRoute = require('./match.route');
@@ -7,7 +7,6 @@ const lobbyRoute = require('./lobby.route');
 const leaderboardRoute = require('./leaderboard.route');
 const docsRoute = require('./docs.route');
 const config = require('../../config/config');
-const bypassAuth = require('../../middlewares/bypassAuth');
 
 // Log whether auth bypass is enabled
 if (config.bypassAuth) {
@@ -16,11 +15,25 @@ if (config.bypassAuth) {
 
 const router = express.Router();
 
-const defaultRoutes = [
-  {
-    path: '/auth',
-    route: authRoute,
+// Platform auth routes - create the auth config to pass
+const authConfig = {
+  jwt: {
+    secret: config.jwt.secret,
+    accessExpirationMinutes: config.jwt.accessExpirationMinutes,
+    refreshExpirationDays: config.jwt.refreshExpirationDays,
+    resetPasswordExpirationMinutes: config.jwt.resetPasswordExpirationMinutes,
+    verifyEmailExpirationMinutes: config.jwt.verifyEmailExpirationMinutes,
   },
+  frontendUrl: config.clientUrl || 'http://localhost:3000',
+  email: config.email.smtp.host ? {
+    smtp: config.email.smtp,
+    from: config.email.from,
+  } : undefined,
+};
+
+router.use('/auth', createAuthRoutes(authConfig));
+
+const defaultRoutes = [
   {
     path: '/users',
     route: userRoute,

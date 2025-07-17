@@ -1,47 +1,70 @@
 const express = require('express');
-const helmet = require('helmet');
-const xss = require('xss-clean');
-const mongoSanitize = require('express-mongo-sanitize');
-const compression = require('compression');
-const cors = require('cors');
-const passport = require('passport');
-const httpStatus = require('http-status');
 const path = require('path');
+const { createApp, ApiError } = require('@platform/backend-core');
+const { setupAuth } = require('@platform/auth-backend');
+const httpStatus = require('http-status');
 const config = require('./config/config');
-const morgan = require('./config/morgan');
-const { jwtStrategy, googleStrategy, facebookStrategy, appleStrategy } = require('./config/passport');
-const { authLimiter } = require('./middlewares/rateLimiter');
 const routes = require('./routes/v1');
-const { errorConverter, errorHandler } = require('./middlewares/error');
-const ApiError = require('./utils/ApiError');
 const swagger = require('./config/swagger');
+const { authLimiter } = require('./middlewares/rateLimiter');
 
-const app = express();
+// Create app with platform defaults
+const app = createApp({
+  trustProxy: true,
+  enableLogging: config.env !== 'test',
+});
 
-// Set security HTTP headers
-app.use(helmet());
+// Auth configuration
+const authConfig = {
+  jwt: {
+    secret: config.jwt.secret,
+    accessExpirationMinutes: config.jwt.accessExpirationMinutes,
+    refreshExpirationDays: config.jwt.refreshExpirationDays,
+    resetPasswordExpirationMinutes: config.jwt.resetPasswordExpirationMinutes,
+    verifyEmailExpirationMinutes: config.jwt.verifyEmailExpirationMinutes,
+  },
+  frontendUrl: config.clientUrl || 'http://localhost:3000',
+  email: config.email.smtp.host ? {
+    smtp: config.email.smtp,
+    from: config.email.from,
+  } : undefined,
+};
 
-// Enable if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
-app.set('trust proxy', 1);
+// Only add oauth if any provider is configured with credentials
+const googleOAuthConfigured = config.google?.clientId && config.google?.clientSecret;
+const facebookOAuthConfigured = config.facebook?.appId && config.facebook?.appSecret;
+const appleOAuthConfigured = config.apple?.clientId && config.apple?.teamId && config.apple?.keyId;
 
-// Logger
-if (config.env !== 'test') {
-  app.use(morgan.successHandler);
-  app.use(morgan.errorHandler);
+const hasOAuth = googleOAuthConfigured || facebookOAuthConfigured || appleOAuthConfigured;
+if (hasOAuth) {
+  authConfig.oauth = {};
+  if (googleOAuthConfigured) {
+    authConfig.oauth.google = {
+      clientId: config.google.clientId,
+      clientSecret: config.google.clientSecret,
+      callbackURL: config.google.callbackUrl || `${config.clientUrl}/auth/google/callback`,
+    };
+  }
+  if (facebookOAuthConfigured) {
+    authConfig.oauth.facebook = {
+      clientId: config.facebook.appId,
+      clientSecret: config.facebook.appSecret,
+      callbackURL: config.facebook.callbackUrl || `${config.clientUrl}/auth/facebook/callback`,
+    };
+  }
+  if (appleOAuthConfigured) {
+    authConfig.oauth.apple = {
+      clientId: config.apple.clientId,
+      teamId: config.apple.teamId,
+      keyId: config.apple.keyId,
+      privateKey: config.apple.privateKey,
+      callbackURL: config.apple.callbackUrl || `${config.clientUrl}/auth/apple/callback`,
+    };
+  }
 }
 
-// Parse json request body
-app.use(express.json());
-
-// Parse urlencoded request body
-app.use(express.urlencoded({ extended: true }));
-
-// Sanitize request data
-app.use(xss());
-app.use(mongoSanitize());
-
-// gzip compression
-app.use(compression());
+// Setup authentication
+setupAuth(app, authConfig);
 
 // Serve static files with proper CORS headers
 app.use('/images', (req, res, next) => {
@@ -96,26 +119,11 @@ const corsOptions = {
   exposedHeaders: ['Content-Length', 'Content-Type']
 };
 
-// Apply CORS with options
-app.use(cors(corsOptions));
+// Apply custom CORS configuration (platform already sets up basic CORS)
+app.use(require('cors')(corsOptions));
 
 // Handle OPTIONS requests
-app.options('*', cors(corsOptions));
-
-// JWT authentication
-app.use(passport.initialize());
-passport.use('jwt', jwtStrategy);
-
-// OAuth strategies
-if (googleStrategy) {
-  passport.use('google', googleStrategy);
-}
-if (facebookStrategy) {
-  passport.use('facebook', facebookStrategy);
-}
-if (appleStrategy) {
-  passport.use('apple', appleStrategy);
-}
+app.options('*', require('cors')(corsOptions));
 
 // Limit repeated failed requests to auth endpoints in production
 if (config.env === 'production') {
@@ -148,10 +156,6 @@ app.use((req, res, next) => {
   next(new ApiError(httpStatus.NOT_FOUND, 'Not found'));
 });
 
-// Convert error to ApiError, if needed
-app.use(errorConverter);
-
-// Handle errors
-app.use(errorHandler);
+// Error handling is already set up by createApp
 
 module.exports = app;
