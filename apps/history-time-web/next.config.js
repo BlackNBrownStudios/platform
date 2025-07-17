@@ -23,12 +23,12 @@ const nextConfig = {
       // Main API (games, cards, auth, etc.)
       {
         source: '/api/v1/:path*',
-        destination: `${backendUrl}/api/v1/:path*`,
+        destination: `${backendUrl}/v1/:path*`,
       },
       // Legacy API support
       {
         source: '/api/:path*',
-        destination: `${backendUrl}/api/:path*`,
+        destination: `${backendUrl}/:path*`,
       },
     ];
   },

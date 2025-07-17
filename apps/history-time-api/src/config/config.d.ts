@@ -27,22 +27,30 @@ declare const config: {
     from: string;
   };
   frontendUrl?: string;
-  google?: {
-    clientID: string;
-    clientSecret: string;
-    callbackURL: string;
+  clientUrl?: string;
+  google: {
+    apiKey?: string;
+    searchEngineId?: string;
+    oauth: {
+      clientId?: string;
+      clientSecret?: string;
+      callbackUrl?: string;
+    };
   };
-  facebook?: {
-    appId: string;
-    appSecret: string;
-    callbackURL: string;
+  facebook: {
+    appId?: string;
+    appSecret?: string;
+    callbackUrl?: string;
   };
-  apple?: {
-    clientID: string;
-    teamID: string;
-    keyID: string;
+  apple: {
+    clientId?: string;
+    teamId?: string;
+    keyId?: string;
     privateKey?: string;
-    callbackURL?: string;
+    callbackUrl?: string;
+  };
+  unsplash?: {
+    apiKey?: string;
   };
 };
 

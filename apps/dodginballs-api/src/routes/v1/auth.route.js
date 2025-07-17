@@ -169,9 +169,15 @@ router.post('/refresh-tokens', validate(authValidation.refreshTokens), authContr
  *         schema:
  *           type: string
  *         description: Email verification token
+ *     responses:
+ *       "204":
+ *         description: No content
+ *       "400":
+ *         description: Invalid token
+ */
 router.get('/verify-email', validate(authValidation.verifyEmail), authController.verifyEmail);
 
-router.post('/send-verification-email', authMiddleware(), authController.sendVerificationEmail);
+// router.post('/send-verification-email', authMiddleware(), authController.sendVerificationEmail);
 
 // OAuth routes - temporarily commented out
 // router.get('/google', auth.oAuth('google'));

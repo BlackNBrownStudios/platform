@@ -49,37 +49,46 @@ const authConfig: any = {
   } : undefined,
 };
 
-// Only add oauth if any provider is configured
-const hasOAuth = config.google || config.facebook || config.apple;
+// Only add oauth if any provider is configured with credentials
+const googleOAuthConfigured = config.google?.oauth?.clientId && config.google?.oauth?.clientSecret;
+const facebookOAuthConfigured = config.facebook?.appId && config.facebook?.appSecret;
+const appleOAuthConfigured = config.apple?.clientId && config.apple?.teamId && config.apple?.keyId;
+
+const hasOAuth = googleOAuthConfigured || facebookOAuthConfigured || appleOAuthConfigured;
 if (hasOAuth) {
   authConfig.oauth = {};
-  if (config.google) {
+  if (googleOAuthConfigured) {
     authConfig.oauth.google = {
-      clientId: config.google.clientID,
-      clientSecret: config.google.clientSecret,
-      callbackURL: config.google.callbackURL,
+      clientId: config.google.oauth.clientId,
+      clientSecret: config.google.oauth.clientSecret,
+      callbackURL: config.google.oauth.callbackUrl,
     };
   }
-  if (config.facebook) {
+  if (facebookOAuthConfigured) {
     authConfig.oauth.facebook = {
       clientId: config.facebook.appId,
       clientSecret: config.facebook.appSecret,
-      callbackURL: config.facebook.callbackURL,
+      callbackURL: config.facebook.callbackUrl,
     };
   }
-  if (config.apple) {
+  if (appleOAuthConfigured) {
     authConfig.oauth.apple = {
-      clientId: config.apple.clientID,
-      teamId: config.apple.teamID,
-      keyId: config.apple.keyID,
+      clientId: config.apple.clientId,
+      teamId: config.apple.teamId,
+      keyId: config.apple.keyId,
       privateKey: config.apple.privateKey || '',
-      callbackURL: config.apple.callbackURL || '',
+      callbackURL: config.apple.callbackUrl || '',
     };
   }
 }
 
 // Setup authentication routes
-setupAuth({ app, config: authConfig, routePrefix: '/v1' });
+try {
+  setupAuth({ app, config: authConfig, routePrefix: '/v1' });
+} catch (error) {
+  console.error('Failed to setup auth:', error);
+  // Continue without auth for now
+}
 
 // Apply game-specific routes
 app.use('/v1', v1Routes);

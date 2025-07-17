@@ -11,11 +11,13 @@ const PORT = config.port;
 // Enhanced MongoDB connection with DocumentDB support
 async function startServer() {
   try {
-    // Get enhanced connection options for DocumentDB
-    const connectionOptions = await getDocumentDBOptions();
+    let options = config.mongoose.options;
     
-    // Merge with existing options
-    const options = { ...config.mongoose.options, ...connectionOptions };
+    // Only use DocumentDB options if we're not connecting to localhost
+    if (!config.mongoose.url.includes('localhost') && !config.mongoose.url.includes('127.0.0.1')) {
+      const connectionOptions = await getDocumentDBOptions();
+      options = { ...options, ...connectionOptions };
+    }
     
     // Connect to MongoDB/DocumentDB
     await mongoose.connect(config.mongoose.url, options);
