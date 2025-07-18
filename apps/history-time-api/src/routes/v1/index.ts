@@ -1,5 +1,6 @@
 import express, { Router } from 'express';
 import config from '../../config/config';
+// const { leaderboardRoutes } = require('@platform/leaderboards');
 
 // Game-specific routes
 // @ts-ignore - JS files without type definitions
@@ -51,6 +52,10 @@ const defaultRoutes = [
     path: '/store',
     route: storeRoute,
   },
+  // {
+  //   path: '/leaderboards',
+  //   route: leaderboardRoutes,
+  // },
 ];
 
 const devRoutes = [
