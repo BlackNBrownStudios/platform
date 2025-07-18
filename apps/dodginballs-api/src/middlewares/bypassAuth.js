@@ -1,5 +1,5 @@
 const httpStatus = require('http-status');
-const ApiError = require('../utils/ApiError');
+const { ApiError } = require('@platform/backend-core');
 const { roleRights } = require('../config/roles');
 const config = require('../config/config');
 

@@ -1,6 +1,7 @@
-// Platform models
-module.exports.Token = require('./token.model');
-module.exports.User = require('./user.model');
+// Import models from auth-backend
+const { User, Token } = require('@platform/auth-backend');
+module.exports.User = User;
+module.exports.Token = Token;
 
 // Game-specific models
 module.exports.Match = require('./match.model');

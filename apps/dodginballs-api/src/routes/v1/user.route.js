@@ -1,6 +1,16 @@
 const express = require('express');
 const { validate } = require('@platform/backend-core');
-const { userValidation, userController, auth } = require('@platform/auth-backend');
+const { userValidation, UserController, auth } = require('@platform/auth-backend');
+const localUserController = require('../../controllers/user.controller');
+
+// Create base user controller from auth-backend
+const baseUserController = new UserController();
+
+// Merge with local DodginBalls-specific methods
+const userController = {
+  ...baseUserController,
+  ...localUserController
+};
 const bypassAuth = require('../../middlewares/bypassAuth');
 const config = require('../../config/config');
 

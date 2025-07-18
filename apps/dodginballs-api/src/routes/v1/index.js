@@ -1,10 +1,11 @@
 const express = require('express');
 const { createAuthRoutes } = require('@platform/auth-backend');
+const { leaderboardRoutes } = require('@platform/leaderboards');
 const userRoute = require('./user.route');
 const teamRoute = require('./team.route');
 const matchRoute = require('./match.route');
 const lobbyRoute = require('./lobby.route');
-const leaderboardRoute = require('./leaderboard.route');
+const gameLeaderboardRoute = require('./leaderboard.route'); // Renamed to avoid confusion
 const docsRoute = require('./docs.route');
 const config = require('../../config/config');
 
@@ -51,8 +52,12 @@ const defaultRoutes = [
     route: lobbyRoute,
   },
   {
-    path: '/leaderboard',
-    route: leaderboardRoute,
+    path: '/game-leaderboard',
+    route: gameLeaderboardRoute, // Custom game-specific leaderboard
+  },
+  {
+    path: '/leaderboards',
+    route: leaderboardRoutes, // Platform leaderboards system
   },
   {
     path: '/docs',
