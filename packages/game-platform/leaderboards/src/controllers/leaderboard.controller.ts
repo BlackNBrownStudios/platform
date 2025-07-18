@@ -73,7 +73,18 @@ const deleteLeaderboard = catchAsync(async (req: Request, res: Response) => {
   res.status(httpStatus.NO_CONTENT).send();
 });
 
-const leaderboardController = {
+interface LeaderboardController {
+  createLeaderboard: typeof createLeaderboard;
+  getLeaderboards: typeof getLeaderboards;
+  getLeaderboard: typeof getLeaderboard;
+  updateScore: typeof updateScore;
+  getRankings: typeof getRankings;
+  getUserRank: typeof getUserRank;
+  resetLeaderboard: typeof resetLeaderboard;
+  deleteLeaderboard: typeof deleteLeaderboard;
+}
+
+const leaderboardController: LeaderboardController = {
   createLeaderboard,
   getLeaderboards,
   getLeaderboard,

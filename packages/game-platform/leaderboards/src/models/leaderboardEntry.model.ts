@@ -1,5 +1,5 @@
 import mongoose, { Document, Schema, Model } from 'mongoose';
-import { plugins } from '@platform/backend-core';
+import { toJSON, paginate } from '@platform/backend-core';
 
 export interface ILeaderboardEntry extends Document {
   leaderboardId: mongoose.Types.ObjectId;
@@ -48,8 +48,8 @@ const leaderboardEntrySchema = new Schema<ILeaderboardEntry>(
 );
 
 // Add plugins
-leaderboardEntrySchema.plugin(plugins.toJSON);
-leaderboardEntrySchema.plugin(plugins.paginate);
+leaderboardEntrySchema.plugin(toJSON);
+leaderboardEntrySchema.plugin(paginate);
 
 // Indexes
 leaderboardEntrySchema.index({ leaderboardId: 1, score: -1 });
