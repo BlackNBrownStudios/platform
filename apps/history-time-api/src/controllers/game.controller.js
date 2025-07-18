@@ -3,7 +3,7 @@ const httpStatus = require('http-status');
 const { gameService, emailService, userService } = require('../services');
 const { ApiError } = require('@platform/backend-core');
 const { catchAsync } = require('@platform/backend-core');
-const pick = require('../utils/pick');
+const { pick } = require('@platform/backend-core');
 
 const createGame = catchAsync(async (req, res) => {
   // Support both authenticated and anonymous users

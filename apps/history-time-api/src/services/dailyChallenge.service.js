@@ -1,6 +1,6 @@
 const httpStatus = require('http-status');
 
-const logger = require('../config/logger');
+const { logger } = require('@platform/backend-core');
 const { DailyChallenge, User, StoreItem } = require('../models');
 const { ApiError } = require('@platform/backend-core');
 

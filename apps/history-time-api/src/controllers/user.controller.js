@@ -7,7 +7,7 @@ const multer = require('multer');
 const { userService, gameService } = require('../services');
 const { ApiError } = require('@platform/backend-core');
 const { catchAsync } = require('@platform/backend-core');
-const pick = require('../utils/pick');
+const { pick } = require('@platform/backend-core');
 
 // Configure multer for file uploads
 const storage = multer.diskStorage({

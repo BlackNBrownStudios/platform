@@ -1,7 +1,7 @@
 const httpStatus = require('http-status');
 const mongoose = require('mongoose');
 
-const logger = require('../config/logger');
+const { logger } = require('@platform/backend-core');
 const { Game, User, Card } = require('../models');
 const { ApiError } = require('@platform/backend-core');
 

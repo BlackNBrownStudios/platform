@@ -3,7 +3,7 @@ const httpStatus = require('http-status');
 const { cardService } = require('../services');
 const { ApiError } = require('@platform/backend-core');
 const { catchAsync } = require('@platform/backend-core');
-const pick = require('../utils/pick');
+const { pick } = require('@platform/backend-core');
 
 const createCard = catchAsync(async (req, res) => {
   const card = await cardService.createCard(req.body, req.user.id);
